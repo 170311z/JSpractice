@@ -7,22 +7,25 @@
 <body>
   <script>
     /*
-      alert
-      confirm
-      prompt
-    */
-    //alert("hello");
-    //var answer = confirm("are you sure?");
-    //console.log(answer);
-    /*
-    if (confirm("本当に削除しますか?")) {
-      //削除処理
+      関数: 複数の処理
+
+      function 関数名() {
+      処理
+      return 返り値
     }
     */
 
-    var name = prompt("お名前は?", "名無しさん");
-    console.log(name);
+    function hello1(name) {
+      console.log("hello" + name);
+    }
+    hello1("Tom");
+    hello1("Bob");
 
+    function hello2(name) {
+      return "hello" + name;
+    }
+    var greet = hello2("Tom");
+    console.log(greet);
   </script>
 </body>
 </html>
