@@ -14,18 +14,19 @@
       return 返り値
     }
     */
-
-    function hello1(name) {
-      console.log("hello" + name);
+    /*
+    function hello(name) {
+      var msg = "hello " + name; // ローカル変数
+      return msg;
     }
-    hello1("Tom");
-    hello1("Bob");
-
-    function hello2(name) {
-      return "hello" + name;
-    }
-    var greet = hello2("Tom");
+    */
+    var hello = function(name) { // 無名関数，匿名関数
+      var msg = "hello " + name; // ローカル変数
+      return msg;
+    };
+    var greet = hello("Tom");
     console.log(greet);
+
   </script>
 </body>
 </html>
