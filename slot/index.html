@@ -26,6 +26,9 @@
     .panel + .panel {
       margin-left: 10px;
     }
+    .panel.unmatched {
+      opacity: 0.5;
+    }
 
     .btn {
       display: inline-block;
@@ -83,6 +86,7 @@
       var timers = [];
       var results = [];
       var stopCount = 0;
+      var isPlaying = false;
 
       var panel0 = document.getElementById('panel0');
       var panel1 = document.getElementById('panel1');
@@ -93,10 +97,15 @@
       var spinButton = document.getElementById('spinButton');
 
       spinButton.addEventListener('click', function() {
+        if (isPlaying) return;
+        isPlaying = true;
         this.className = 'inactive';
         btn0.className = 'btn';
         btn1.className = 'btn';
         btn2.className = 'btn';
+        panel0.className = 'panel';
+        panel1.className = 'panel';
+        panel2.className = 'panel';
 
         runSlot(0, panel0);
         runSlot(1, panel1);
@@ -123,10 +132,35 @@
       });
 
       function stopSlot(n, panel, btn) {
+        if (!isPlaying || results[n] !== undefined) return;
         btn.className = 'btn inactive';
         clearTimeout(timers[n]);
         results[n] = panel.innerHTML;
         stopCount++;
+
+        if (stopCount === 3) {
+          //check
+          checkResults();
+
+          //init
+          isPlaying = false;
+          timers = [];
+          results = [];
+          stopCount = 0;
+          spinButton.className = '';
+        }
+      }
+
+      function checkResults() {
+        if(results[0] !== results[1] && results[0] !== results[2]) {
+          panel0.className = 'panel unmatched';
+        }
+        if(results[1] !== results[0] && results[1] !== results[2]) {
+          panel1.className = 'panel unmatched';
+        }
+        if(results[2] !== results[1] && results[2] !== results[0]) {
+          panel2.className = 'panel unmatched';
+        }
       }
 
     })();
