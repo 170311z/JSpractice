@@ -41,6 +41,7 @@
 
     .btn + .btn {
       margin-left: 10px;
+
     }
     .btn.inactive {
       opacity: 0.5;
@@ -78,6 +79,9 @@
     (function() {
       'use strict';
 
+      var panels = ['○', '△', '☆'];
+      var timers = [];
+
       var panel0 = document.getElementById('panel0');
       var panel1 = document.getElementById('panel1');
       var panel2 = document.getElementById('panel2');
@@ -91,7 +95,18 @@
         btn0.className = 'btn';
         btn1.className = 'btn';
         btn2.className = 'btn';
+
+        runSlot(0, panel0);
+        runSlot(1, panel1);
+        runSlot(2, panel2);
       });
+
+      function runSlot(n, panel) {
+        panel.innerHTML = panels[Math.floor(Math.random() * panels.length)];
+        timers[n] = setTimeout(function() {
+          runSlot(n, panel)
+        }, 50);
+      }
 
     })();
   </script>
