@@ -13,6 +13,7 @@
 <body>
   <h1>見出し</h1>
   <p id="msg">こんにちは!</p>
+  <button id="add">Click!</button>
   <script>
     var e = document.getElementById('msg');
     e.textContent = 'hello!';
@@ -28,6 +29,14 @@
   var greet = document.createElement('p'),
       text = document.createTextNode('hello world');
   document.body.appendChild(greet).appendChild(text);
+
+  document.getElementById('add').addEventListener('click', function() {
+    var greet = document.createElement('p'),
+        text = document.createTextNode('hello world');
+    document.body.appendChild(greet).appendChild(text);
+  });
+
+
   </script>
 </body>
 </html>
