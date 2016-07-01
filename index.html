@@ -3,18 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>JavaScriptの練習</title>
+  <style>
+    .myStyle {
+      font-weight: bold;
+      border: 1px solid gray;
+    }
+  </style>
 </head>
 <body>
   <h1>見出し</h1>
   <p id="msg">こんにちは!</p>
   <script>
-  //console.dir(window);
-  //console.log(window.outerHeight);
-  window.location.href = 'http://dotinstall.com';
+    var e = document.getElementById('msg');
+    e.textContent = 'hello!';
+    e.style.color = 'red';
+    e.className = 'myStyle'
 
-  //document - 今開いているページ
+  /*
+    body
+      p
+        text
+  */
 
-  //document object model (DOM)
+  var greet = document.createElement('p'),
+      text = document.createTextNode('hello world');
+  document.body.appendChild(greet).appendChild(text);
   </script>
 </body>
 </html>
