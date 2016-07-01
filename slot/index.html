@@ -11,6 +11,49 @@
       font-size: 16px;
       margin-top: 30px;
     }
+    .panel {
+      display: inline-block;
+      width: 60px;
+      padding: 7px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      color: #00aaff;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 64px;
+      background: #fff;
+    }
+    .panel + .panel {
+      margin-left: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 60px;
+      padding: 7px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      color: #fff;
+      box-shadow: 0 4px 0 #0088cc;
+      background: #00aaff;
+      cursor: pointer;
+    }
+
+    .btn + .btn {
+      margin-left: 10px;
+    }
+
+    #spinButton {
+      margin: 0 auto;
+      width: 240px;
+      padding: 7px;
+      border-radius: 5px;
+      color: #fff;
+      box-shadow: 0 4px 0 #e91b0c;
+      background: #f44336;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
@@ -25,5 +68,19 @@
     <div class="btn" id="btn2">STOP</div>
   </div>
   <div id="spinButton">SPIN</div>
+  <script>
+    (function() {
+      'use strict';
+
+      var panel0 = document.getElementById('panel0');
+      var panel1 = document.getElementById('panel1');
+      var panel2 = document.getElementById('panel2');
+      var btn0 = document.getElementById('btn0');
+      var btn1 = document.getElementById('btn1');
+      var btn2 = document.getElementById('btn2');
+      var spinButton = document.getElementById('spinButton');
+      
+    })();
+  </script>
 </body>
 </html>
