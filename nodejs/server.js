@@ -1,5 +1,6 @@
 // Webサーバー
-var http = require('http');
+var http = require('http'),
+    fs = require('fs');
 var settings = require('./settings');
 console.log(settings);
 var server = http.createServer();
